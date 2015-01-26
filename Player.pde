@@ -12,8 +12,10 @@ class Player
   
   void display()
   {
+    PVector mouse = new PVector(mouseX,mouseY);
     fill(255,0,0);
-    rect(px,py,px2,py2); 
+    ellipse(mouse.x,mouse.y,width/16,width/16);
+    rect(px,py,px2,py2);
   }
   
   void move()
