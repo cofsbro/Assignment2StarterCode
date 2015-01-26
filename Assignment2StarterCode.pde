@@ -1,83 +1,55 @@
-/*
-    DIT OOP Assignment 2 Starter Code
-    =================================
-    
-    Loads player properties from an xml file
-    See: https://github.com/skooter500/DT228-OOP 
-*/
-
-ArrayList<Player> players = new ArrayList<Player>();
-boolean[] keys = new boolean[526];
-
-void setup()
-{
-  size(500, 500);
-  setUpPlayerControllers();
+boolean devMode = false;
+boolean sketchFullScreen() {
+  return ! devMode;
 }
+
+void setup ()
+{
+
+  if (devMode)
+  {
+    size(800, 600);
+  } else
+  {
+    size(displayWidth, displayHeight);
+  }
+
+}
+
+
+
+int layer = 1;
+String start = "Main Menu";
+String p = "Single Player";
+String two = "Two Player";
+String rules = "Game Rules";
 
 void draw()
-{
-  for(Player player:players)
+{ 
+  if (layer == 1)
   {
-    player.update();
-    player.display();
+    float pieceheight = height/6;
+    float halfheight = height/2;
+    float twopostion = halfheight + pieceheight;
+    float rulespostion = halfheight + pieceheight + pieceheight;
+
+
+    background(0);
+    textSize(width/10);
+    fill(255, 0, 0);
+    text(start, width/4, height/7);
+
+    textSize(width/20);
+    fill(0, 0, 255);
+    text(p, width/2.9, halfheight);
+
+    textSize(width/20);
+    fill(0, 0, 255);
+    text(two, width/2.7, twopostion);
+
+    textSize(width/20);
+    fill(0, 0, 255);
+    text(rules, width/2.8, rulespostion);
   }
 }
 
-void keyPressed()
-{
-  keys[keyCode] = true;
-}
-
-void keyReleased()
-{
-  keys[keyCode] = false;
-}
-
-boolean checkKey(char theKey)
-{
-  return keys[Character.toUpperCase(theKey)];
-}
-
-char buttonNameToKey(XML xml, String buttonName)
-{
-  String value =  xml.getChild(buttonName).getContent();
-  if ("LEFT".equalsIgnoreCase(value))
-  {
-    return LEFT;
-  }
-  if ("RIGHT".equalsIgnoreCase(value))
-  {
-    return RIGHT;
-  }
-  if ("UP".equalsIgnoreCase(value))
-  {
-    return UP;
-  }
-  if ("DOWN".equalsIgnoreCase(value))
-  {
-    return DOWN;
-  }
-  //.. Others to follow
-  return value.charAt(0);  
-}
-
-void setUpPlayerControllers()
-{
-  XML xml = loadXML("arcade.xml");
-  XML[] children = xml.getChildren("player");
-  int gap = width / (children.length + 1);
-  
-  for(int i = 0 ; i < children.length ; i ++)  
-  {
-    XML playerXML = children[i];
-    Player p = new Player(
-            i
-            , color(random(0, 255), random(0, 255), random(0, 255))
-            , playerXML);
-    int x = (i + 1) * gap;
-    p.pos.x = x;
-    p.pos.y = 300;
-   players.add(p);         
-  }
-}
