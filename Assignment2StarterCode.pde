@@ -16,12 +16,14 @@ void setup ()
   
   mainmenu = new MainMenu();
   choicearrow = new ChoiceArrow();
+  gamelevel = new GameLevel();
 
 
 }
 
 MainMenu mainmenu;
 ChoiceArrow choicearrow;
+GameLevel gamelevel;
 
 
 
@@ -40,6 +42,6 @@ void draw()
   
   if (layer == 2)
   {
-    background(0);
+    gamelevel.display();
   }
 }
