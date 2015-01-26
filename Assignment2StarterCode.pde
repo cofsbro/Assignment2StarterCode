@@ -1,4 +1,4 @@
-boolean devMode = false;
+boolean devMode = true;
 boolean sketchFullScreen() {
   return ! devMode;
 }
@@ -13,15 +13,18 @@ void setup ()
   {
     size(displayWidth, displayHeight);
   }
+  
+  choicearrow = new ChoiceArrow();
 
 }
+
+ChoiceArrow choicearrow;
 
 
 
 int layer = 1;
 String start = "Main Menu";
 String p = "Single Player";
-String two = "Two Player";
 String rules = "Game Rules";
 
 void draw()
@@ -32,24 +35,25 @@ void draw()
     float halfheight = height/2;
     float twopostion = halfheight + pieceheight;
     float rulespostion = halfheight + pieceheight + pieceheight;
+    
 
 
-    background(0);
+    background(255);
     textSize(width/10);
     fill(255, 0, 0);
     text(start, width/4, height/7);
 
     textSize(width/20);
     fill(0, 0, 255);
-    text(p, width/2.9, halfheight);
-
-    textSize(width/20);
-    fill(0, 0, 255);
-    text(two, width/2.7, twopostion);
+    text(p, width/2.9, twopostion);
 
     textSize(width/20);
     fill(0, 0, 255);
     text(rules, width/2.8, rulespostion);
+    
+    choicearrow.move();
+    choicearrow.draw();
+    
   }
 }
 
