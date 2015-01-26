@@ -17,6 +17,7 @@ void setup ()
   mainmenu = new MainMenu();
   choicearrow = new ChoiceArrow();
   gamelevel = new GameLevel();
+  player = new Player();
 
 
 }
@@ -24,7 +25,7 @@ void setup ()
 MainMenu mainmenu;
 ChoiceArrow choicearrow;
 GameLevel gamelevel;
-
+Player player;
 
 
 
@@ -43,5 +44,7 @@ void draw()
   if (layer == 2)
   {
     gamelevel.display();
+    player.move();
+    player.display();
   }
 }
