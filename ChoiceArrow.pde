@@ -15,7 +15,7 @@ class ChoiceArrow
 
   }
   
-  void draw()
+  void display()
   {
     float halfwidth = w/2;
     float halfheight = h/2;
@@ -36,6 +36,11 @@ class ChoiceArrow
       if(keyCode == DOWN && y == gy)
       {
         y = height/2.1 + height/6.1 + height/6.1;   
+      }
+      
+      if(key == 's' && y == gy || key == 'S' && y == gy)
+      { 
+        layer = 2;
       }
  
     }
