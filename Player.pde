@@ -1,6 +1,7 @@
 class Player
 {
   float px, py, px2, py2;
+  float outerring, innerring, centerring;
   
   Player()
   {
@@ -8,65 +9,38 @@ class Player
     py = height/1.2;
     px2 = width/16;
     py2 = width/16;
+    
+    outerring = px;
+    innerring = outerring/2;
+    centerring = innerring/2;
+    
   }
   
   void display()
   {
     PVector mouse = new PVector(mouseX,mouseY);
+    stroke(255,0,0);
+    noFill();
+    
+    ellipse(mouse.x,mouse.y,outerring,outerring);
+    ellipse(mouse.x,mouse.y,innerring,innerring);
+    
     fill(255,0,0);
-    ellipse(mouse.x,mouse.y,width/16,width/16);
-    rect(px,py,px2,py2);
+    ellipse(mouse.x,mouse.y,centerring,centerring);
+    rect(px,py,px2,py2); 
+    
+    stroke(0);
   }
   
-  void move()
+  void keyPressed()
   {
-    if(keyPressed)
-    {
-      if(keyCode == UP)
-        { 
-          py = py - 1;
-          px2 = px2 - 0.5;
-          py2 = py2 - 0.5;
-          print(py);
-        }
-        
-        if(keyCode == DOWN)
-        {
-           py = py + 1;
-          px2 = px2 + 0.5;
-          py2 = py2 + 0.5;
-        }
-        
-        if(keyCode == LEFT)
-        { 
-          px = px - 4;
-        }
-        
-        if(keyCode == RIGHT)
-        {
-           px = px + 4;
-        }
-        
-        if(key == ' ')
-        {
-           py = py - 5;
-           
-        }
-        
-    }
-    
   }
   
   void keyReleased()
-    {
-
-      if (key == ' ')
-      {
-        py = py - 5;
-      }
-    }
-    
-    
-  
-  
+  {
+      
+  }
 }
+    
+    
+ 

@@ -1,4 +1,4 @@
-boolean devMode = true;
+boolean devMode = false;
 boolean sketchFullScreen() {
   return ! devMode;
 }
@@ -16,7 +16,7 @@ void setup ()
     size(displayWidth, displayHeight);
   }
   
-  frameRate(30);
+  frameRate(60);
   cloud = loadImage("clouds.png");
   leaves= loadImage("leaves.png");
   
@@ -49,8 +49,6 @@ void draw()
   if (layer == 2)
   {
     gamelevel.display();
-    player.move();
     player.display();
-    player.keyReleased();
   }
 }
