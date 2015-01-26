@@ -4,10 +4,10 @@ class Player
   
   Player()
   {
-    px = width/12;
+    px = width/16;
     py = height/1.2;
-    px2 = width/12;
-    py2 = width/12;
+    px2 = width/16;
+    py2 = width/16;
   }
   
   void display()
@@ -23,29 +23,48 @@ class Player
       if(keyCode == UP)
         { 
           py = py - 1;
-          px2 = px2 - 0.1;
-          py2 = py2 - 0.1;
+          px2 = px2 - 0.5;
+          py2 = py2 - 0.5;
+          print(py);
         }
         
         if(keyCode == DOWN)
         {
            py = py + 1;
-          px2 = px2 + 0.1;
-          py2 = py2 + 0.1; 
+          px2 = px2 + 0.5;
+          py2 = py2 + 0.5;
         }
         
         if(keyCode == LEFT)
         { 
-          px = px - 1;
+          px = px - 4;
         }
         
         if(keyCode == RIGHT)
         {
-           px = px + 1;
+           px = px + 4;
         }
+        
+        if(key == ' ')
+        {
+           py = py - 5;
+           
+        }
+        
     }
     
   }
+  
+  void keyReleased()
+    {
+
+      if (key == ' ')
+      {
+        py = py - 5;
+      }
+    }
+    
+    
   
   
 }

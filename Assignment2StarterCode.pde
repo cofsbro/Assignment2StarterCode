@@ -3,7 +3,7 @@ boolean sketchFullScreen() {
   return ! devMode;
 }
 
-PImage cloud;
+PImage cloud, leaves;
 
 void setup ()
 {
@@ -16,14 +16,14 @@ void setup ()
     size(displayWidth, displayHeight);
   }
   
-  
+  frameRate(30);
   cloud = loadImage("clouds.png");
+  leaves= loadImage("leaves.png");
   
   mainmenu = new MainMenu();
   choicearrow = new ChoiceArrow();
   gamelevel = new GameLevel();
   player = new Player();
-
 
 }
 
@@ -51,5 +51,6 @@ void draw()
     gamelevel.display();
     player.move();
     player.display();
+    player.keyReleased();
   }
 }
