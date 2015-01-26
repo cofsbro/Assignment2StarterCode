@@ -1,6 +1,7 @@
 class GameLevel
 {
-  float x, y, x2, y2;
+  float x, y, x2, y2, trunk, trunkwidth, trunkheight; 
+  float leafheight, lx,cloudheight;
   
   GameLevel()
   {
@@ -8,6 +9,12 @@ class GameLevel
     y = height/1.8;
     x2 = width;
     y2 = height;
+    trunk = height/4.5;
+    trunkwidth = width/16;
+    trunkheight = height/2.5;
+    leafheight = height/5;
+    lx = (width/16) * 3;
+    cloudheight = (height/12)/2;
 
   }
   
@@ -17,22 +24,27 @@ class GameLevel
     fill(0,102,0);
     rect(x,y,x2,y2); 
     
-    for(int i = 0; i < 800; i+=100)
+    for(float i = 0; i < width; i+=width/4)
     {
+      stroke(0);
       fill(102,51,0);
-      rect(i,150,50,250);
+      rect(i,trunk, trunkwidth,trunkheight);
       
-      for(int j = 25; j < 800; j+=100)
+      for(float j = i - trunkwidth ; j < width; j+=width/4)
       {
+        
+        noStroke();
+        noFill();
+        image(cloud,j,cloudheight,lx,trunkwidth);
+        
+        stroke(0,204,0);
         fill(0,204,0);
-        ellipse(j,150,50,50);
-        ellipse(0,125,50,50);
-        ellipse(50,125,50,50);
-        ellipse(0,150,50,50);
-        ellipse(25,100,50,50);
+        rect(j,leafheight,lx,trunkwidth);
       }
       
     }
+    
+    stroke(0);
   }
   
   

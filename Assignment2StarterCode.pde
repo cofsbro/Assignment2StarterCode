@@ -3,6 +3,8 @@ boolean sketchFullScreen() {
   return ! devMode;
 }
 
+PImage cloud;
+
 void setup ()
 {
 
@@ -13,6 +15,9 @@ void setup ()
   {
     size(displayWidth, displayHeight);
   }
+  
+  
+  cloud = loadImage("clouds.png");
   
   mainmenu = new MainMenu();
   choicearrow = new ChoiceArrow();
