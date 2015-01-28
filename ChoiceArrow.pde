@@ -1,3 +1,4 @@
+//The Select arrow to choose game or Rules. 
 class ChoiceArrow
 {
   float x, y;
@@ -38,9 +39,17 @@ class ChoiceArrow
         y = height/2.1 + height/6.1 + height/6.1;   
       }
       
-      if(key == 's' && y == gy || key == 'S' && y == gy)
+      if(key == ENTER)
       { 
-        layer = 2;
+        if(y == gy)
+        {
+          layer = 2;
+        }
+        
+        if(y == ry)
+        { 
+          layer = 3;
+        }
       }
  
     }

@@ -1,12 +1,13 @@
+//Main Menu screen
 class MainMenu
 {
-  String start, p, rules;
+  String start, p, rules,two;
   float pieceheight, halfheight, twopostion, rulespostion;
   
   MainMenu()
   {
     start = "Main Menu";
-    p = "Single Player";
+    p = "Start Game";
     rules = "Game Rules";
     
     pieceheight = height/6;
@@ -18,18 +19,24 @@ class MainMenu
   
   void display()
   {
-    background(255);
+    background(0);
+    textAlign(CENTER);
     textSize(width/10);
     fill(255, 0, 0);
-    text(start, width/4, height/7);
+    text(start, width/2, height/7);
+    
+    textSize(width/14);
+    text("Not the BEES!! NOT THE BEES", width/2, height/2-height/6);
+    
+    textSize(width/14);
+    text("Nicholas Cage Edition!", width/2, height/2);
+
+    fill(255, 242, 0);
+    textSize(width/20);
+    text(p, width/2, twopostion);
 
     textSize(width/20);
-    fill(0, 0, 255);
-    text(p, width/2.9, twopostion);
-
-    textSize(width/20);
-    fill(0, 0, 255);
-    text(rules, width/2.8, rulespostion);
+    text(rules, width/2, rulespostion);
     
   }
   
